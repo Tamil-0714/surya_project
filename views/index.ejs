@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ai powered Review analyser</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@textea/json-viewer@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/light.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/dark.css"
+    />
+  </head>
+  <body>
+    <div
+      class="name-wrapper"
+      style="display: flex; width: 60%; justify-content: space-evenly"
+    >
+      <h2>Review analyser</h2>
+      <h2 id="productName"></h2>
+    </div>
+    <main>
+      <div id="json-viewer"></div>
+      <div class="char-container">
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="linkBox">Enter you flipcar link here</label>
+        <input type="text" id="linkBox" />
+        <button id="btn-analyse">Analyse</button>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+    <script></script>
+  </body>
+</html>
+
+<!--  -->
