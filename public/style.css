@@ -72,3 +72,14 @@ body {
     transition: all 0.3s ease-in-out;
   }
   
+
+  .aires{
+    /* outline: 1px solid red; */
+    position: absolute;
+    left: 0;
+    width: 520px;
+    top: 140px;
+    height: 80vh;
+    overflow-y: auto;
+    margin-left: 40px;
+  }

@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 function convertToReviewUrl(fullUrl) {
   try {
     const url = new URL(fullUrl);
@@ -137,10 +137,8 @@ const fetchReiviews = async (actualUrl) => {
       console.error("Reviews widget not found!");
     }
   } catch (error) {
-    console.error(error);
+    console.error("error herere ", error);
   }
 };
 
-module.exports = {  
-  fetchReiviews,
-};
+export default fetchReiviews ;

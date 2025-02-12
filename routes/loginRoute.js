@@ -1,14 +1,19 @@
-const express = require("express");
-const bcrypt = require("bcrypt");
-const { fetchReiviews } = require("../fucntioons/functions");
-const { validateAdmin } = require("../database/db");
-const router = express.Router();
+import express from "express";
+import bcrypt from "bcrypt";
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// import { fileURLToPath } from 'url';
+// import path from 'path';
+// import { fetchReviews } from "../fucntioons/functions.js";
+import { validateAdmin } from "../database/db.js";
+const loginRoute = express.Router();
+// console.log(path.resolve(__dirname, '../functions/functions.js'));
 
-router.get("/", (req, res) => {
+loginRoute.get("/", (req, res) => {
   res.render("login", { style: undefined });
 });
 
-router.post("/", async (req, res) => {
+loginRoute.post("/", async (req, res) => {
   const { username, password } = req.body;
 
   if (!username.trim() || !password.trim()) {
@@ -31,4 +36,4 @@ router.post("/", async (req, res) => {
   });
 });
 
-module.exports = router;
+export { loginRoute };

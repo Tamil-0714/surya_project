@@ -13,4 +13,4 @@ function isAlreadyLogin(req, res, next) {
   }
 }
 
-module.exports = { isLogin, isAlreadyLogin };
+export { isLogin, isAlreadyLogin };

@@ -1,8 +1,8 @@
-const express = require("express");
-const { fetchReiviews } = require("../fucntioons/functions");
-const router = express.Router();
+import express from "express";
+import  fetchReiviews  from "../fucntioons/functions.js";  
+const reviewRoute = express.Router();
 
-router.post("/", async (req, res) => {
+reviewRoute.post("/", async (req, res) => {
   try {
     const link = req.body?.link;
 
@@ -12,8 +12,8 @@ router.post("/", async (req, res) => {
     const { reviews, productName } = await fetchReiviews(link);
     res.status(200).json({ reviews: reviews, productName: productName });
   } catch (error) {
-    console.error(error);
+    console.error("from here onl",error);
   }
 });
 
-module.exports = router;
+export {reviewRoute} ;

@@ -1,9 +1,12 @@
-const express = require("express");
-const session = require("express-session");
-const reviewRoute = require("./routes/reviewRoute");
-const loginRoute = require("./routes/loginRoute");
-const { isLogin, isAlreadyLogin } = require("./middleware/middleware");
+import express from "express";
+import session from "express-session";
+import { reviewRoute } from "./routes/reviewRoute.js"; // Note the.js extension
+import { loginRoute } from "./routes/loginRoute.js"; // Note the.js extension
+import { isLogin, isAlreadyLogin } from "./middleware/middleware.js"; // Note the.js extension
+import { askAi } from "./Ai.js";
+
 const app = express();
+
 const port = 3000;
 
 app.set("view engine", "ejs");
@@ -29,6 +32,17 @@ app.get("/", isLogin, (req, res) => {
 app.use("/login", isAlreadyLogin, loginRoute);
 
 app.use("/review", isLogin, reviewRoute);
+app.use("/aksAI", isLogin, async (req, res) => {
+  try {
+    const aires = await askAi(req.body.reviewJSON);
+    console.log(aires);
+
+    if (aires) res.status(200).send(aires);
+  } catch (error) {
+    console.error(error);
+    
+  }
+});
 
 app.get("/about", (req, res) => {
   const data = {
