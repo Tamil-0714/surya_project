@@ -102,13 +102,14 @@ const askAi = async (reviewJson) => {
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     var urlencoded = new URLSearchParams();
-    urlencoded.append("reviewJSON", reviewJson);
+    urlencoded.append("reviewJSON", JSON.stringify(reviewJson));
 
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: urlencoded,
     };
+    
 
     const response = await fetch(
       "http://localhost:3000/aksAI/",

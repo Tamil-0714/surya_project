@@ -35,12 +35,13 @@ app.use("/review", isLogin, reviewRoute);
 app.use("/aksAI", isLogin, async (req, res) => {
   try {
     const aires = await askAi(req.body.reviewJSON);
+
+
     console.log(aires);
 
     if (aires) res.status(200).send(aires);
   } catch (error) {
     console.error(error);
-    
   }
 });
 
